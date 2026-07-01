@@ -234,7 +234,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/6 bg-white/90 backdrop-blur-md">
       <div className="relative" onMouseLeave={() => setActive(null)}>
-        <div className="mx-auto flex h-17 max-w-304 items-center justify-between px-5 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-17 max-w-none items-center px-5 sm:px-6 lg:px-8 xl:px-12">
           {/* Logo */}
           <a
             href={HREF}
@@ -250,7 +250,7 @@ export default function Header() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          <nav className="ml-8 hidden items-center gap-0.5 lg:flex xl:ml-10">
             {NAV_MENUS.map((item) => {
               const isActive = active === item.label && item.columns;
               return (
@@ -281,7 +281,7 @@ export default function Header() {
           </nav>
 
           {/* Desktop right actions */}
-          <div className="hidden items-center gap-2.5 lg:flex">
+          <div className="ml-auto hidden items-center gap-2.5 lg:flex">
             <a
               href={HREF}
               className="px-2 text-[16px] font-medium text-ink hover:text-brand"

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import CookiePreferences from "@/components/CookiePreferences";
 import { ttPhotoroom } from "./fonts";
 import "./globals.css";
 
@@ -48,7 +49,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={ttPhotoroom.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <CookiePreferences />
+      </body>
     </html>
   );
 }
