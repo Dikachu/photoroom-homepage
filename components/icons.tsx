@@ -47,6 +47,14 @@ export function ChevronRight(props: IconProps) {
   );
 }
 
+export function ChevronLeft(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" {...props}>
+      <path d="m15 6-6 6 6 6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function Close(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>

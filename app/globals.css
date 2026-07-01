@@ -24,6 +24,17 @@
   --color-night: #0c0c0e;
   --color-night-card: #1b1b1d;
 
+  /* Dashboard (dark app UI) palette — sampled from the Photoroom web app */
+  --color-db-bg: #0d0d0f;
+  --color-db-surface: #151518;
+  --color-db-card: #1a1a1d;
+  --color-db-card-2: #202024;
+  --color-db-hover: #26262b;
+  --color-db-line: #2b2b30;
+  --color-db-text: #f4f4f5;
+  --color-db-muted: #9b9ba3;
+  --color-db-faint: #6e6e77;
+
   /* fluid section radius used across the page */
   --radius-xl2: 1.5rem;
 
@@ -108,5 +119,51 @@
   }
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Dashboard — "window too small" gate                                */
+/*  Photoroom web only supports viewports >= 600px wide / 400px tall.  */
+/*  Pure CSS so it is SSR-safe with no hydration flash.                */
+/* ------------------------------------------------------------------ */
+.db-toosmall {
+  display: none;
+}
+
+@media (max-width: 599.98px), (max-height: 399.98px) {
+  .db-shell {
+    display: none !important;
+  }
+  .db-toosmall {
+    display: flex !important;
+  }
+}
+
+/* Subtle loading shimmer used behind dashboard thumbnails before the
+   real asset (added later) loads in. */
+@keyframes db-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.db-skeleton {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-db-card) 30%,
+    var(--color-db-card-2) 50%,
+    var(--color-db-card) 70%
+  );
+  background-size: 200% 100%;
+  animation: db-shimmer 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .db-skeleton {
+    animation: none;
   }
 }
