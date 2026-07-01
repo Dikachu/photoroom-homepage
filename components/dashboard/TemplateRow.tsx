@@ -7,22 +7,32 @@ import ScrollRow from "./ScrollRow";
 
 /**
  * Gallery rail for the template collections (Classics / Studio / Essentials).
- * Tiles are static square previews (no navigation); `Classics` shows a caption
- * underneath, `Studio` shows the AI sparkle badge.
+ * Tiles are static previews (no navigation): `square` for Classics/Essentials,
+ * `portrait` for Studio. `Classics` shows a caption underneath, `Studio` shows
+ * the AI sparkle badge.
  */
 export default function TemplateRow({
   title,
   items,
+  shape = "square",
 }: {
   title: string;
   items: Template[];
+  shape?: "square" | "portrait";
 }) {
+  const box =
+    shape === "portrait"
+      ? "h-46 w-36"
+      : "size-36 sm:size-40";
+
   return (
     <Section title={title}>
       <ScrollRow ariaLabel={title} className="gap-3 pb-1">
         {items.map((item, i) => (
           <figure key={item.image ?? i} className="shrink-0">
-            <div className="relative size-36 overflow-hidden rounded-xl bg-db-card ring-1 ring-white/6 sm:size-40">
+            <div
+              className={`relative ${box} overflow-hidden rounded-xl bg-db-card ring-1 ring-white/6`}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.image}

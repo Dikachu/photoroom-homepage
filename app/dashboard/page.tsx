@@ -29,7 +29,7 @@ export default function DashboardPage() {
             <ToolsGrid />
             <GetStarted />
             <TemplateRow title="Classics" items={CLASSICS} />
-            <TemplateRow title="Studio" items={STUDIO} />
+            <TemplateRow title="Studio" items={STUDIO} shape="portrait" />
             <TemplateRow title="Essentials" items={ESSENTIALS} />
 
             <div className="flex justify-center pt-2">
