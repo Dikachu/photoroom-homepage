@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "AI-powered photo editing tool and listing studio for quick, professional-quality visuals tailored to e‑commerce businesses and social media creators. It helps automate image creation, format for multiple marketplaces, and produce marketplace-ready listings at scale.",
   applicationName: "Photoroom",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Remove Background and Create Product Pictures | Photoroom",
     description:
@@ -16,10 +21,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en",
     siteName: "Photoroom",
+    images: [
+      {
+        url: "/photoroom-og-generic.webp",
+        alt: "Photoroom",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@photoroom_app",
+    images: ["/photoroom-og-generic.webp"],
   },
   robots: { index: true, follow: true },
 };
