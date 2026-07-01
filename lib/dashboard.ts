@@ -86,14 +86,16 @@ export type Tool = {
   badge?: string;
   /** Collapsed away below xl so tablets show the truncated set + "See all". */
   hideOnSmall?: boolean;
+  /** Collapsed away below 760px so phones show four primary tiles. */
+  hideOnMobile?: boolean;
 };
 
 export const TOOLS: Tool[] = [
   { label: "Start from a photo", icon: UploadPhoto, highlight: true },
   { label: "Background Remover", icon: BgRemover },
   { label: "Virtual Model", icon: VirtualModel },
-  { label: "Product Staging", icon: ProductStaging },
-  { label: "Ghost Mannequin", icon: GhostMannequin },
+  { label: "Product Staging", icon: ProductStaging, hideOnMobile: true },
+  { label: "Ghost Mannequin", icon: GhostMannequin, hideOnMobile: true },
   { label: "Product Beautifier", icon: ProductBeautifier, hideOnSmall: true },
   { label: "Flat Lay", icon: FlatLay, hideOnSmall: true },
   { label: "Video Generator", icon: VideoGen, badge: "Max", hideOnSmall: true },

@@ -5,7 +5,10 @@ import { useState } from "react";
 export default function CookiePreferences() {
   const [visible, setVisible] = useState(true);
 
-  if (!visible) return null;
+  const pathname = window.location.pathname.split("/")[1];
+
+  // Hide the cookie preferences component on the /dashboard page
+  if (!visible || pathname === "dashboard") return null;
 
   return (
     <section

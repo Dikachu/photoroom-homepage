@@ -12,9 +12,9 @@ export default function EmpowerBanner() {
   return (
     <section
       aria-label={EMPOWER.title}
-      className="relative flex flex-col gap-4 overflow-hidden rounded-xl bg-[linear-gradient(90deg,#36280e_0%,#36280e_55%,#36280e_100%)] p-1 sm:flex-row sm:items-center sm:gap-6 sm:p-6"
+      className="relative flex gap-4 overflow-hidden rounded-xl bg-[linear-gradient(90deg,#36280e_0%,#36280e_55%,#36280e_100%)] p-4 sm:items-center sm:gap-6 sm:p-6"
     >
-      <div className="min-w-0 flex-1">
+      <div className="min-w-20 flex-1">
         <h2 className="text-[18px] font-semibold leading-tight text-white sm:text-[22px]">
           {EMPOWER.title}
         </h2>
@@ -24,11 +24,11 @@ export default function EmpowerBanner() {
       </div>
 
       <div className="flex items-center gap-4 pr-4">
-        <div className="items-center max-w-30 md:max-w-50 shrink">
+        <div className="w-full max-w-30 shrink min-[800px]:max-w-50">
           <img
             src={EMPOWER.team}
             alt={EMPOWER.alt}
-            className="h-full w-full object-cover"
+            className="h-auto w-full object-cover"
           />
         </div>
         <a

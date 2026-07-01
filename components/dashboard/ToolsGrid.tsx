@@ -2,6 +2,12 @@ import { TOOLS, HREF, type Tool } from "@/lib/dashboard";
 
 function ToolTile({ tool }: { tool: Tool }) {
   const Icon = tool.icon;
+  const visibilityClass = tool.hideOnSmall
+    ? "hidden xl:flex"
+    : tool.hideOnMobile
+      ? "hidden min-[760px]:flex"
+      : "flex";
+
   return (
     <a
       href={HREF}
@@ -9,11 +15,13 @@ function ToolTile({ tool }: { tool: Tool }) {
         tool.highlight
           ? "border-brand/60 bg-brand/15 hover:bg-brand/20"
           : "border-white/8 bg-db-card hover:bg-db-hover"
-      } ${tool.hideOnSmall ? "hidden xl:flex" : "flex"}`}
+      } ${visibilityClass}`}
     >
       <span
         className={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${
-          tool.highlight ? "bg-brand/20 text-brand/60" : "bg-white/6 text-db-text"
+          tool.highlight
+            ? "bg-brand/20 text-brand/60"
+            : "bg-white/6 text-db-text"
         }`}
       >
         <Icon className="h-5.25 w-5.25" />
@@ -34,10 +42,10 @@ function ToolTile({ tool }: { tool: Tool }) {
   );
 }
 
-/** 2-row tool launcher. Collapses to the first five tools + "See all" below xl. */
+/** 2-row tool launcher. Shows six below xl, then four below 760px. */
 export default function ToolsGrid() {
   return (
-    <div className="grid grid-cols-3 gap-3 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-3 min-[760px]:grid-cols-3 xl:grid-cols-5">
       {TOOLS.map((tool) => (
         <ToolTile key={tool.label} tool={tool} />
       ))}
