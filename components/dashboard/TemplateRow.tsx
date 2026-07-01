@@ -22,7 +22,7 @@ export default function TemplateRow({
 }) {
   const box =
     shape === "portrait"
-      ? "h-46 w-36"
+      ? "h-40 w-30"
       : "size-36 sm:size-40";
 
   return (

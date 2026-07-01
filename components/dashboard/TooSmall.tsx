@@ -1,3 +1,5 @@
+import { WhiteLogo } from "../icons";
+
 /**
  * Shown (via CSS in globals.css) only when the viewport drops below the
  * supported minimum of 600px wide / 400px tall — mirrors the Photoroom web
@@ -7,8 +9,7 @@ export default function TooSmall() {
   return (
     <div className="db-toosmall fixed inset-0 z-100 flex-col bg-db-bg text-db-text">
       <div className="flex h-14 items-center gap-2 border-b border-white/6 px-4">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/svg/inline-2.svg" alt="Photoroom" className="h-6 w-auto" />
+        <WhiteLogo className="h-6 w-auto text-white" />
       </div>
       <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
         <h1 className="text-[18px] font-semibold">
