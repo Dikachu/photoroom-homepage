@@ -234,7 +234,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/6 bg-white/90 backdrop-blur-md">
       <div className="relative" onMouseLeave={() => setActive(null)}>
-        <div className="mx-auto flex h-17 max-w-none items-center px-5 sm:px-6 lg:px-8 xl:px-12">
+        <div className="mx-auto flex h-17 max-w-none items-center justify-between px-5 sm:px-6 lg:justify-start lg:px-8 xl:px-12">
           {/* Logo */}
           <a
             href={HREF}
