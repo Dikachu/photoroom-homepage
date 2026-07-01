@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — sampled from the live Photoroom homepage           */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-sans: var(--font-photoroom), ui-sans-serif, system-ui, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+
+  --color-cream: #f5f4f0;
+  --color-cream-200: #ecebe5;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #474747;
+  --color-muted: #6b6b6b;
+  --color-muted-2: #8a8a8a;
+
+  --color-brand: #492ffb;
+  --color-brand-light: #6b50ff;
+  --color-brand-dark: #3a23d6;
+
+  --color-lime: #e8f15b;
+  --color-lime-hover: #dde74c;
+
+  --color-night: #0c0c0e;
+  --color-night-card: #1b1b1d;
+
+  /* fluid section radius used across the page */
+  --radius-xl2: 1.5rem;
+
+  /* breakpoint helper so we can use container-query-ish spacing */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01";
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-brand) 22%, transparent);
+  }
+
+  /* keep the focus ring tasteful but visible for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities / helpers                                                */
+/* ------------------------------------------------------------------ */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* large display headings on the site use slightly tightened tracking */
+@utility heading-tight {
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
